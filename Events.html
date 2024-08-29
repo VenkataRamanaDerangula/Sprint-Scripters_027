@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .hero-section {
+    background-image: url('./Images_s/h.jpg'); /* Replace 'your-image-path.png' with your actual image path */
+    background-size: cover;
+    background-position: center;
+    height: 60vh; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.breadcrumb {
+    position: absolute;
+    
+    top: 150px; /* Position from the top */
+    font-size: 14px;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.breadcrumb a {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.main-heading {
+    font-size: 48px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            padding-top: 133%; /* 4:3 Aspect Ratio */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            z-index: 2;
+            transition: background 0.3s ease;
+        }
+
+        .date-label {
+            font-size: 12px;
+            color: #ff7e29;
+            margin-bottom: 5px;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .card-hover {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: top 0.3s ease-in-out;
+        }
+
+        .card-hover p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .card-hover button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #ff7e29;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-hover button:hover {
+            background-color: #e06624;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card:hover .card-details {
+            background: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="breadcrumb">
+            <a href="#">Home</a> &gt; <span>Events</span>
+        </div>
+        <h1 class="main-heading">Events</h1>
+    </section>
+    <br>
+    <div class="border">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-lines-header.jpg" alt="Logo">
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="card-container">
+    <!-- Card 1 -->
+    <div class="card">
+        <img src="https://curlytales.com/wp-content/uploads/2022/04/Untitled-design-56-1.jpg" alt="The Story Love Movie Oscar Event">
+        <div class="card-details">
+            <div class="date-label">12 Oct, 2024</div>
+            <h3>Alan Walker Concert Event</h3>
+        </div>
+        <div class="card-hover">
+            <p class="time">17:00 - 21:00</p>
+            <p class="location">Banglore</p>
+            <button onclick="window.location.href='event1.html'">Register</button>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+        <img src="https://i.pinimg.com/736x/d8/95/c1/d895c14dd540a8e7bc97d3d3bb2c8f0d.jpg" alt="The Under Life Movie Film Festival">
+        <div class="card-details">
+            <div class="date-label">24 Sep, 2024</div>
+            <h3>Sunburn Arena Ft.</h3>
+        </div>
+        <div class="card-hover">
+            <p class="time">10:00 - 18:00</p>
+            <p class="location">Goa</p>
+            <button onclick="window.location.href='event2.html'">Register</button>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+        <img src="https://res.cloudinary.com/winspear-centre/image/upload/c_fill,f_auto,g_center,h_630,q_auto,w_1200/v1/2023-2024%20Season/Third%20Party/Zakir%20Khan/Zakir-02_1_1600x_1000.jpg" alt="Best Magical Movies Ever Made">
+        <div class="card-details">
+            <div class="date-label">26 Dec, 2024</div>
+            <h3>Zakir Khan
+                Indian comedian and poet</h3>
+        </div>
+        <div class="card-hover">
+            <p class="time">14:00 - 20:00</p>
+            <p class="location">Mumbai</p>
+            <button onclick="window.location.href='event3.html'">Register</button>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+        <img src="https://www.dreamdorm.in/cdn/shop/files/black-DuaLipaPurple.jpg?v=1691141064" alt="The Strange Love Movie 2023 Festival">
+        <div class="card-details">
+            <div class="date-label">26 Jan, 2025</div>
+            <h3>Dua Lipa Music Concert</h3>
+        </div>
+        <div class="card-hover">
+            <p class="time">16:00 - 22:00</p>
+            <p class="location">Mumbai</p>
+            <button onclick="window.location.href='event4.html'">Register</button>
+        </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+        <img src="https://images-cdn.ubuy.co.in/635902617820f17a9b22ca5d-eminem-presents-the-anger-management.jpg" alt="The Strange Love Movie Oscar Event">
+        <div class="card-details">
+            <div class="date-label">28 Jun, 2025</div>
+            <h3>Eminem
+                American rapper and music producer
+                </h3>
+        </div>
+        <div class="card-hover">
+            <p class="time">17:00 - 21:00</p>
+            <p class="location">Banglore</p>
+            <button onclick="window.location.href='event5.html'">Register</button>
+        </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card">
+        <img src="https://in.bmscdn.com/events/moviecard/ET00323687.jpg" alt="Best Historical Movies Of 2023">
+        <div class="card-details">
+            <div class="date-label">28 Jul, 2025</div>
+            <h3>Abhishek Upmanyu
+                YouTuber
+                </h3>
+        </div>
+        <div class="card-hover">
+            <p class="time">10:00 - 15:00</p>
+            <p class="location">Delhi</p>
+            <button onclick="window.location.href='event6.html'">Register</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript to handle hover effects and interactions
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const hoverDiv = card.querySelector('.card-hover');
+            hoverDiv.style.top = '0';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            const hoverDiv = card.querySelector('.card-hover');
+            hoverDiv.style.top = '100%';
+        });
+    });
+</script>
+
+        
+
+        
+
+    
+
+</body>
+</html>
