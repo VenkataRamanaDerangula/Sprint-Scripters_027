@@ -3,137 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bf60b033ea.js" crossorigin="anonymous"></script>
     <title>MovieGate</title>
     <link rel="stylesheet" href="index.css">
-    <script src="https://kit.fontawesome.com/bf60b033ea.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-    <!-- Header with Logo and Navigation -->
+    <nav>
+        <div class="container">
+            <div>
+                <h1 class="logo">MovieGate</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Movies</a>
+                <a href="#">Events</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="search-login">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </nav>
     <div class="banner">
-        <header>
-            <nav>
-                <div class="nav-content container">
-                    <div class="logo">
-                        <h1>MovieGate</h1>
-                    </div>
-                    <ul class="nav-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Movies</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                    <div class="search-user">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                </div>
-            </nav>  
-        </header>
-
-    <!-- Nav bar end -->
-
-        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner3.jpg" alt="" class="active">
-        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-05.jpg" alt="">
-        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner.jpg" >
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner3.jpg" class="active">
         <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/banner-02.jpg">
-        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-06.jpg" alt="">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner.jpg" >
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-05.jpg">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-06.jpg">
+    </div>
+    <div class="border">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-lines-header.jpg">
+    </div>
+    <main>
+        <div class="container">
+            <!-- Cards Section -->
+             <div class="cards">
+                <div class="card">
+                    <img src="./1.png" class="card-image" alt="Upcoming Film Festivals">
+                    <h3>Upcoming Film Festivals</h3>
+                    <button>Join Now</button>
+                </div>
+                <div class="card">
+                    <img src="./2.png" class="card-image" alt="Watch Film Awards">
+                    <h3>Watch Film Awards</h3>
+                    <button>Watch Now</button>
+                </div>
+                <div class="card">
+                    <img src="./3.png" class="card-image" alt="Comedy TV Shows">
+                    <h3>Comedy TV Shows</h3>
+                    <button>Get Ticket</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Now Playing Section -->
+            <div class="sec-1">
+                <h3>Watch New Movies</h3>
+                <h1>Movies Now Playing</h1>
+            </div>
+            <!-- Movie Cards -->
+             <div class="movie-cards">
+                <div class="card-1">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-12-768x513.jpg" alt="The Fifth Day">
+                    <h3>The Fifth Day</h3>
+                    <p>Comedy / 180 Mins</p>
+                    <button>Get Ticket</button>
+                </div>
+                <div class="card-1">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-10-768x660.jpg" alt="Black and White Twins">
+                    <h3>Black and White Twins</h3>
+                    <p>Animation, Comedy / 190 Mins</p>
+                    <button>Get Ticket</button>
+                </div>
+                <div class="card-1">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-09-768x513.jpg" alt="The Scariest Dream">
+                    <h3>The Scariest Dream</h3>
+                    <p>Thriller / 180 Mins</p>
+                    <button>Get Ticket</button>
+                </div>
+                <div class="card-1">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-08-768x513.jpg" alt="The Pursuit of Dreams">
+                    <h3>The Pursuit of Dreams</h3>
+                    <p>Animation / 180 Mins</p>
+                    <button>Get Ticket</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
-        <!-- Text Overlay -->
-        <div class="overlay">
-            <p>Action Movie</p>
-            <h1>The Witcher Season 2</h1>
-            <p>Written and Directed by Aleesha Rose / Canada 2024</p>
-            <div class="btn-group">
-                <a href="#">More Info</a>
-                <a href="#">Get Ticket</a>
+
+<!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-top">
+            <div class="f-logo">
+                <h1>MovieGate</h1>
+            </div>
+            <div class="help-policy">
+                <h3>Help/Privacy Policy</h3>
+            </div>
+            <div class="s-icons">
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-pinterest"></i>
+                <i class="fa fa-instagram"></i>
             </div>
         </div>
 
-    </div>
-
-    <div class="border">
-        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-lines-header.jpg" alt="Logo">
-    </div>
-
-    <!-- Footer -->
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <h1>MovieGate</h1>
-                </div>
-                <div class="help-privacy-social">
-                    <h3>Help/Privacy Policy</h3>
-                    <div class="social-media">
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-info">
-                <div class="ticket-info">
+        <div class="container">
+            <div class="con-1">
+                <div class="sec-1">
                     <p>Buy movie tickets easily with</p>
                     <p>MovieGate system nationwide</p>
                     <button class="cta-button">Get Your Ticket</button>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h4 class="header">Movies</h4>
-                        <ul>
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Adventure</a></li>
-                            <li><a href="#">Animation</a></li>
-                            <li><a href="#">Comedy</a></li>
-                            <li><a href="#">Crime</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section" id="footer-section">
-                        <h4 class="header">Links</h4>
-                        <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Latest Events</a></li>
-                            <li><a href="#" class="highlight">Contact</a></li>
-                        </ul>
+            </div>
+            <div class="con-1">
+                <div class="sec-2">
+                    <h4>Movies</h4>
+                    <div>
+                        <a href="#">Action</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Animation</a>
+                        <a href="#">Comedy</a>
+                        <a href="#">Crime</a>
                     </div>
                 </div>
-                <div class="footer-section newsletter">
-                    <h4 class="header">Newsletter</h4>
-                    <p class="news">Subscribe to Leitmotif newsletter this very day.</p>
+            </div>
+            <div class="con-1">
+                <div class="sec-3">
+                    <h4>Links</h4>
+                    <div>
+                        <a href="#">About</a>
+                        <a href="#">My Account</a>
+                        <a href="#">News</a>
+                        <a href="#">Latest Events</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="con-1">
+
+                <div class="sec-4">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to Leitmotif newsletter this very day.</p>
                     <form>
                         <input type="email" placeholder="Email Address" required>
                         <button type="submit">Submit</button>
                     </form>
-                    <label>
-                        <input type="radio" required>I agree to all terms and policies of the company
-                    </label>
+                    <input type="radio" required>I agree to all terms and policies of the company
                 </div>
-            </div>
-            <div class="back-to-top">
-                <a href="#"><i class="fa fa-arrow-up"></i></a>
-            </div>
+            </div>   
+        </div>
+
+        <div class="to-top">
+            <i class="fa fa-arrow-up"></i>
         </div>
     </footer>
-    
-    <script>
-        // Carousel functionality
-        const images = document.querySelectorAll('.banner img');
-        let currentIndex = 0;
-
-        function showNextImage() {
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].classList.add('active');
-        }
-
-        setInterval(showNextImage, 4000);
-    </script>
-
 </body>
 </html>
+
+<script>
+    const images = document.querySelectorAll('.banner img');
+    let currentIndex = 0;
+
+    function showNextImage() {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    }
+
+    setInterval(showNextImage, 4000);
+
+
+
+    window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 100) { 
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+</script>
