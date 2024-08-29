@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakir Khan Live in Mumbai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .hero-section {
+            background-image: url('./Images_s/h.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .breadcrumb {
+            position: absolute;
+            top: 150px;
+            font-size: 14px;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .main-heading {
+            font-size: 48px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .event-container {
+            display: flex;
+            padding: 20px;
+        }
+
+        .event-details, .event-info {
+            flex: 1;
+            margin: 20px;
+        }
+
+        .event-details h1 {
+            color: #333;
+        }
+
+        .event-date {
+            background-color: #FFA07A;
+            color: white;
+            padding: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .highlighted-text {
+            color: #FF4500;
+        }
+
+        .event-images {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .event-images img {
+            width: 48%;
+            height: auto;
+        }
+
+        button {
+            background-color: #FFA07A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #FF6347;
+            transform: scale(1.05);
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            background-color: grey;
+            margin-top: 20px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Form Styles */
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-content label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .modal-content input {
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .modal-content button[type="submit"] {
+            background-color: #FFA07A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background-color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="breadcrumb">
+            <a href="#">Home</a> &gt; <span>Events</span> &gt; <span>Zakir Khan Indian comedian and poet</span>
+        </div>
+        <h1 class="main-heading">Events</h1>
+    </section>
+    <br>
+    <div class="border">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-lines-header.jpg" alt="Logo">
+    </div>
+    <br><br><br><br><br><br><br>
+
+    <div class="event-container">
+        <div class="event-details">
+            <h1>Zakir Khan Live Show</h1>
+            <div class="event-date">December 26, 2024</div>
+            <p>Get ready for a night full of laughter with the renowned comedian Zakir Khan! Known for his unique style and relatable humor, Zakir will bring his best jokes and comedic skits to Bangalore. Don’t miss out on this opportunity to enjoy an evening with one of India’s top stand-up artists.</p>
+            <h3 class="highlighted-text">“Haq Se Single” and Many More Laughs!!</h3>
+            <p>Zakir Khan, famous for his hit stand-up specials and witty storytelling, will be performing his signature act. Join us for a hilarious night out with friends and family as Zakir takes the stage with his infectious energy and humor. Book your tickets now for a memorable comedy experience!</p>
+            <div class="event-images">
+                <img src="data:image/jpeg;base64,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" alt="Image 1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEZopQ__0ZoiPL5PpFoEgnIORLdSC2b07BMg&s" alt="Image 2">
+            </div>
+            <button id="registerBtn">Register </button>
+        </div>
+        <div class="event-info">
+            <div class="event-timing">
+                <p><strong>Timing:</strong> 8:00 pm to 10:00 pm</p>
+                <p><strong>Date:</strong> December 26, 2024</p>
+                <p><strong>Category:</strong> Live Show</p>
+                <p><strong>Location:</strong> Mumbai</p>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book Your Seat</h2>
+            <form id="registrationForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            const location = { lat: 19.0760, lng: 72.8777};
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: location,
+            });
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+
+        // Load the map script
+        const mapScript = document.createElement('script');
+        mapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBZpSfHBwhbzQy2dAknS5-g_-QqHPR1ODU&callback=initMap`;
+        mapScript.async = true;
+        document.head.appendChild(mapScript);
+
+        // Modal handling
+        var modal = document.getElementById("registrationModal");
+        var btn = document.getElementById("registerBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_USER_ID");
+        })();
+
+        // Handle form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                name: name,
+                email: email
+            }).then(function(response) {
+                alert('Registration successful!');
+                modal.style.display = "none";
+            }, function(error) {
+                alert('Error: ' + error.text);
+            });
+        });
+    </script>
+</body>
+</html>

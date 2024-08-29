@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Upmanyu Live Show</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .hero-section {
+            background-image: url('./Images_s/h.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .breadcrumb {
+            position: absolute;
+            top: 150px;
+            font-size: 14px;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .main-heading {
+            font-size: 48px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .event-container {
+            display: flex;
+            padding: 20px;
+        }
+
+        .event-details, .event-info {
+            flex: 1;
+            margin: 20px;
+        }
+
+        .event-details h1 {
+            color: #333;
+        }
+
+        .event-date {
+            background-color: #FFA07A;
+            color: white;
+            padding: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .highlighted-text {
+            color: #FF4500;
+        }
+
+        .event-images {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .event-images img {
+            width: 48%;
+            height: auto;
+        }
+
+        button {
+            background-color: #FFA07A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #FF6347;
+            transform: scale(1.05);
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            background-color: grey;
+            margin-top: 20px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Form Styles */
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-content label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .modal-content input {
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .modal-content button[type="submit"] {
+            background-color: #FFA07A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background-color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="breadcrumb">
+            <a href="#">Home</a> &gt; <span>Events</span> &gt; <span>Abhishek Upmanyu YouTuber Live Show</span>
+        </div>
+        <h1 class="main-heading">Events</h1>
+    </section>
+    <br>
+    <div class="border">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-lines-header.jpg" alt="Logo">
+    </div>
+    <br><br><br><br><br><br><br>
+
+    <div class="event-container">
+        <div class="event-details">
+            <h1>Abhishek Upmanyu Live Show</h1>
+            <div class="event-date">July 28, 2025</div>
+            <p>Get ready to laugh out loud with one of India's most popular stand-up comedians, Abhishek Upmanyu! Known for his hilarious take on everyday life and relatable humor, Abhishek will be performing live in Mumbai. Don’t miss the chance to experience his side-splitting comedy firsthand.</p>
+            <h3 class="highlighted-text">“Aisi Taisi Democracy” and Much More!</h3>
+            <p>Abhishek Upmanyu, celebrated for his witty observations and engaging storytelling, will deliver a comedy show packed with laughter. Join us for an evening of fun and entertainment with one of the best in the comedy scene. Get your tickets now and enjoy an unforgettable night out!</p>
+            <div class="event-images">
+                <img src="https://az827626.vo.msecnd.net/cdn/events/images/2023-10-27-03-41-17-524_65.webp" alt="Image 1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0uHnqLdgcWxpxKIsS-IcN786gmR-8bYeBi5i5rlq7BsyV4faiTgYhVAD92xC8w56KyiA&usqp=CAU" alt="Image 2">
+            </div>
+            <button id="registerBtn">Register Now</button>
+        </div>
+        <div class="event-info">
+            <div class="event-timing">
+                <p><strong>Timing:</strong> 5:00 pm to 9:00 pm</p>
+                <p><strong>Date:</strong> July 28, 2025</p>
+                <p><strong>Category:</strong> Live Show</p>
+                <p><strong>Location:</strong> Delhi</p>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book Your Seat</h2>
+            <form id="registrationForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            const location = { lat: 28.6139, lng: 77.2090
+            };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: location,
+            });
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+
+        // Load the map script
+        const mapScript = document.createElement('script');
+        mapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBZpSfHBwhbzQy2dAknS5-g_-QqHPR1ODU&callback=initMap`;
+        mapScript.async = true;
+        document.head.appendChild(mapScript);
+
+        // Modal handling
+        var modal = document.getElementById("registrationModal");
+        var btn = document.getElementById("registerBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_USER_ID");
+        })();
+
+        // Handle form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                name: name,
+                email: email
+            }).then(function(response) {
+                alert('Registration successful!');
+                modal.style.display = "none";
+            }, function(error) {
+                alert('Error: ' + error.text);
+            });
+        });
+    </script>
+</body>
+</html>
