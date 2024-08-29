@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Feature</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Menu Section -->
+        <section class="additional-section">
+            <div class="card">
+                <img src="./1.png" alt="Festival" class="card-image">
+                <h3>Upcoming Film Festivals</h3>
+                <button>Join Now</button>
+            </div>  
+
+            <div class="card">
+                <img src="./2.png" alt="Awards" class="card-image">
+                <h3>Watch Film Awards</h3>
+                <button>Watch Now</button>
+            </div>
+
+            <div class="card">
+                <img src="./3.png" alt="Comedy" class="card-image">
+                <h3>Comedy TV Shows</h3>
+                <button>Get Ticket</button>
+            </div>
+        </section>
+
+        <!-- Now Playing Section -->
+        <section class="now-playing-section">
+            <h2>Watch New Movies</h2>
+            <h1>Movies Now Playing</h1>
+            <div class="separator"></div>
+            <div class="movie-cards">
+                <!-- Repeat this structure for each movie card -->
+                <div class="card">
+                    <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p20066125_b_v13_aa.jpg" alt="Movie 1" class="movie-image">
+                    <div class="card-content">
+                        <h3>The Fifth Day</h3>
+                        <p>Comedy / 180 Mins</p>
+                        <button>Get Ticket</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://assetscdn1.paytm.com/images/cinema/pushpa-2-(1)-(1)-ff7e1f10-fbfc-11ee-bfde-1dbbef51e33c.jpg" alt="Movie 2" class="movie-image">
+                    <div class="card-content">
+                        <h3>The Family man</h3>
+                        <p>Thriller / 190 Mins</p>
+                        <button>Get Ticket</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://i.pinimg.com/originals/3f/ff/d7/3fffd702d48852ede79ed71d04f36a2b.jpg" alt="Movie 3" class="movie-image">
+                    <div class="card-content">
+                        <h3>Pushpa</h3>
+                        <p>Action / 180 Mins</p>
+                        <button>Get Ticket</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMcTuO48Kg4RRF6x_K04DPEPqQKe60BQpypQ&s" alt="Movie 4" class="movie-image">
+                    <div class="card-content">
+                        <h3>Kalki</h3>
+                        <p>Adventure / 180 Mins</p>
+                        <button>Get Ticket</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Section -->
+        <section class="partner-section">
+            <div class="partner-logos">
+                <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner1.png" alt="Partner 1">
+                <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner2.png" alt="Partner 2">
+                <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner3.png" alt="Partner 3">
+                <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner4.png" alt="Partner 4">
+                <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner6.png" alt="Partner 5">
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const partnerLogos = document.querySelector('.partner-logos');
+            const logos = document.querySelectorAll('.partner-logos img');
+            let index = 0;
+
+            function updateLogos() {
+                index++;
+                if (index >= logos.length) {
+                    index = 0;
+                    partnerLogos.style.transform = `translateX(0)`; // Reset position
+                } else {
+                    partnerLogos.style.transform = `translateX(-${index * (120 + 15)}px)`; // Move to the next logo
+                }
+            }
+
+            setInterval(updateLogos, 2000); // Move one image every 2 seconds
+        });
+    </script>
+</body>
+</html>
