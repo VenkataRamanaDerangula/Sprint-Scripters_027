@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="project.css">
+
+<div class="container">
+    <!-- Partner Logos Section -->
+    <div class="partner">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner1.png" alt="Partner 1">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner2.png" alt="Partner 2">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner3.png" alt="Partner 3">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner4.png" alt="Partner 4">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner6.png" alt="Partner 5">
+    </div>
+</div> 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const partnerLogos = document.querySelector('.partner');
+        const logos = document.querySelectorAll('.partner img');
+        let index = 0;
+
+        function updateLogos() {
+            index++;
+            if (index >= logos.length) {
+                index = 0;
+                partnerLogos.style.transform = `translateX(0)`; // Reset position
+            } else {
+                partnerLogos.style.transform = `translateX(-${index * (120 + 15)}px)`; // Move to the next logo
+            }
+        }
+
+        setInterval(updateLogos, 2000); // Move one image every 2 seconds
+    });
+
+</script>

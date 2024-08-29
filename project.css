@@ -1,0 +1,19 @@
+
+.partner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.partner img {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.partner img:hover {
+    transform: scale(1.1);
+}
