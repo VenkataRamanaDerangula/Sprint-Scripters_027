@@ -16,13 +16,13 @@
             <div class="nav-links">
                 <a href="#">Home</a>
                 <a href="#">Movies</a>
-                <a href="#">Events</a>
+                <a href="Events.html">Events</a>
                 <a href="#">About</a>
                 <a href="#">Contact</a>
             </div>
             <div class="search-login">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user" id="loginIcon"></i>
             </div>
         </div>
     </nav>
@@ -186,4 +186,9 @@
     }
 });
 
+/// To display login page 
+
+document.getElementById("loginIcon").onclick = function() {
+            window.location.href = "login.html";
+        };
 </script>
