@@ -311,7 +311,7 @@
         const confirmPassword = document.getElementById('confirm-password').value;
 
         // Regular expression for validation
-        const passwordRegex = /^(?=.[A-Z])(?=.[!@#$%^&()_+])[A-Za-z\d!@#$%^&()_+]{4,10}$/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&()_+])[A-Za-z\d!@#$%^&()_+]{4,10}$/;
         const phoneRegex = /^\d{10}$/;
 
         // Check if passwords match
@@ -342,14 +342,16 @@
         };
 
         console.log('User Data:', userData);
+        const key = name
+
 
         // Call function to add data to Firebase
-        addData(userData);
+        addData(key, userData);
     });
 
-    const addData = (userData) => {
-        fetch(`https://login-registration-page-58d92-default-rtdb.firebaseio.com/users.json`, {
-            method: 'POST',
+    const addData = (key, userData) => {
+        fetch(`https://login-registration-page-58d92-default-rtdb.firebaseio.com/users/${key}.json`, {
+            method: 'PUT',  
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -358,7 +360,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log("Data added: ", data);
-                alert("Registration successfull");
+                alert("Registration successful");
                 window.location.href = 'login.html';
             })
             .catch(error => {
