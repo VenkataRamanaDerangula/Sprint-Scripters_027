@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="index.css">
     <script src="./index.js"></script>
 </head>
+
 <body>
     <nav>
         <div class="container">
@@ -24,12 +26,14 @@
             <div class="search-login">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <i class="fa-solid fa-user" id="loginIcon"></i>
+                <span id="usernameDisplay"></span>
+                <button id="logoutButton" style="margin-left: 10px; display: none;">Logout</button>
             </div>
         </div>
     </nav>
     <div class="banner">
         <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/banner-02.jpg" class="active">
-        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner3.jpg" >
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner3.jpg">
         <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner.jpg">
         <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-05.jpg">
         <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-06.jpg">
@@ -40,7 +44,7 @@
     <main>
         <div class="container">
             <!-- Cards Section -->
-             <div class="cards">
+            <div class="cards">
                 <div class="card">
                     <img src="./1.png" class="card-image" alt="Upcoming Film Festivals">
                     <h3>Upcoming Film Festivals</h3>
@@ -66,43 +70,47 @@
                 <h1>Movies Now Playing</h1>
             </div>
             <!-- Movie Cards -->
-             <div class="movie-cards">
+            <div class="movie-cards">
                 <div class="card-1">
 
-                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-12-768x513.jpg" alt="The Fifth Day">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-12-768x513.jpg"
+                        alt="The Fifth Day">
                     <div class="overlay">
                         <h3>The Fifth Day</h3>
                         <p>Comedy / 180 Mins</p>
                         <button>Get Ticket</button>
                     </div>
-                  
+
                 </div>
                 <div class="card-1">
-                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-10-768x660.jpg" alt="Black and White Twins">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-10-768x660.jpg"
+                        alt="Black and White Twins">
                     <div class="overlay">
                         <h3>Black and White Twins</h3>
                         <p>Animation, Comedy / 190 Mins</p>
                         <button>Get Ticket</button>
                     </div>
-                 
+
                 </div>
                 <div class="card-1">
-                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-09-768x513.jpg" alt="The Scariest Dream">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-09-768x513.jpg"
+                        alt="The Scariest Dream">
                     <div class="overlay">
                         <h3>The Scariest Dream</h3>
                         <p>Thriller / 180 Mins</p>
                         <button>Get Ticket</button>
                     </div>
-               
+
                 </div>
                 <div class="card-1">
-                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-08-768x513.jpg" alt="The Pursuit of Dreams">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-08-768x513.jpg"
+                        alt="The Pursuit of Dreams">
                     <div class="overlay">
                         <h3>The Pursuit of Dreams</h3>
                         <p>Animation / 180 Mins</p>
                         <button>Get Ticket</button>
                     </div>
-                
+
                 </div>
             </div>
         </div>
@@ -116,21 +124,26 @@
 
                 <div class="event">
                     <h2>Register Yourself Now for the Events</h2>
-                    <p>Every man must decide whether he will walk in the light of creative altruism or in the darkness of destructive selfishness. Ut porttitor et lectus ut tempus. Aliquam lacinia justo.</p>
+                    <p>Every man must decide whether he will walk in the light of creative altruism or in the darkness
+                        of destructive selfishness. Ut porttitor et lectus ut tempus. Aliquam lacinia justo.</p>
                     <button class="btn">More Info</button>
                 </div>
                 <!-- Event Cards Section -->
                 <div class="event-card-container">
                     <div class="event-card">
-                        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/Event06.jpg" alt="Best Magical Movies Ever Made">
+                        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/Event06.jpg"
+                            alt="Best Magical Movies Ever Made">
                         <h3>Best Magical Movies Ever Made</h3>
-                        <p><i class="fa-solid fa-clock"></i> 14:00 - 18:00 | <i class="fa-solid fa-location-dot"></i> New York</p>
+                        <p><i class="fa-solid fa-clock"></i> 14:00 - 18:00 | <i class="fa-solid fa-location-dot"></i>
+                            New York</p>
                         <a href="#">Read More</a>
                     </div>
                     <div class="event-card">
-                        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/Event05.jpg" alt="The Strange Love Movie 2023 Festival">
+                        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/Event05.jpg"
+                            alt="The Strange Love Movie 2023 Festival">
                         <h3>The Strange Love Movie 2023 Festival</h3>
-                        <p><i class="fa-solid fa-clock"></i> 16:00 - 22:00 | <i class="fa-solid fa-location-dot"></i> New York</p>
+                        <p><i class="fa-solid fa-clock"></i> 16:00 - 22:00 | <i class="fa-solid fa-location-dot"></i>
+                            New York</p>
                         <a href="#">Read More</a>
                     </div>
                 </div>
@@ -149,14 +162,32 @@
                 <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner5.png" alt="Partner Logo 5">
             </div>
         </div>
-    
+
         <!-- Footer Banner Section -->
         <div class="foot-banner">
             <button>Book Your Ticket</button>
         </div>
     </main>
+<<<<<<< HEAD
 <!-- FOOTER SECTION -->
         <!-- Footer -->
+=======
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-top">
+            <div class="f-logo">
+                <h1>MovieGate</h1>
+            </div>
+            <div class="help-policy">
+                <h3>Help/Privacy Policy</h3>
+            </div>
+            <div class="s-icons">
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-pinterest"></i>
+                <i class="fa fa-instagram"></i>
+            </div>
+        </div>
+>>>>>>> 41013a61559eb5ec706ac319c7ecb5b99e2a9c3b
 
         <footer>
             <div class="container">
@@ -218,6 +249,15 @@
                     <a href="#"><i class="fa fa-arrow-up"></i></a>
                 </div>
             </div>
+<<<<<<< HEAD
         </footer>
+=======
+        </div>
+
+        <div class="to-top">
+            <i class="fa fa-arrow-up"></i>
+        </div>
+    </footer>
+>>>>>>> 41013a61559eb5ec706ac319c7ecb5b99e2a9c3b
 </body>
 </html>

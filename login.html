@@ -7,12 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/Register</title>
+    <script src="https://kit.fontawesome.com/bf60b033ea.js" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         body {
-            font-family: "Open Sans", sans-serif;
-            background: linear-gradient(135deg, #ff6b6b 0%, #5f27cd 100%);
+            font-family: "Poppins", sans-serif;
+            background: white;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,13 +21,66 @@
             margin: 0;
         }
 
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: background-color 0.3s ease-in-out;
+            border-bottom: 1px solid rgb(51, 48, 48);
+        }
+
+        nav.scrolled {
+            background-color: #111;
+        }
+
+        nav>div.nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10;
+            border-bottom: 1px solid rgb(144, 142, 142);
+        }
+
+        .logo {
+            font-size: 30px;
+            margin-left: 30px;
+            color: #d96c2c;
+        }
+
+        .nav-links a:hover {
+            color: #d96c2c;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            padding: 30px;
+            color: white;
+            font-size: 15px;
+        }
+
+        .search-login i {
+            margin-right: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
         .container {
             background-color: white;
+            margin-top: 220px;
             padding: 40px;
             border-radius: 8px;
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-            max-width: 1300px;
             width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 40px;
         }
 
         .form-header {
@@ -225,6 +279,26 @@
 </head>
 
 <body>
+    <nav>
+        <div class="nav-container">
+            <div>
+                <h1 class="logo">MovieGate</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="movies.html">Movies</a>
+                <a href="Events.html">Events</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="search-login">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-user" id="loginIcon"></i>
+                <span id="usernameDisplay"></span>
+                <button id="logoutButton" style="margin-left: 10px; display: none;">Logout</button>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <div class="form-header">
             <a href="#" id="login-link" class="active">Login</a>
@@ -271,9 +345,7 @@
             <button type="submit" class="btn-register">Register</button>
         </form>
     </div>
-
 </body>
-
 </html>
 
 <script>
@@ -320,18 +392,17 @@
             return;
         }
 
-
+        // Validate password
         if (!passwordRegex.test(createPassword)) {
             alert('Password must be 4-10 characters long, include at least one uppercase letter and one special character.');
             return;
         }
 
-
+        // Validate mobile number
         if (!phoneRegex.test(mobile)) {
             alert('Phone number must be exactly 10 digits.');
             return;
         }
-
 
         // Create user data object
         const userData = {
@@ -342,16 +413,50 @@
         };
 
         console.log('User Data:', userData);
-        const key = name
 
-
-        // Call function to add data to Firebase
-        addData(key, userData);
+        // Check if the email is already registered
+        checkIfEmailExists(email, userData);
     });
+
+    const checkIfEmailExists = (email, userData) => {
+        fetch(`https://login-registration-page-58d92-default-rtdb.firebaseio.com/users.json`)
+            .then(response => response.json())
+            .then(users => {
+                if (users) {
+                    // Check if email already exists
+                    const emailExists = Object.values(users).some(user => user.email === email);
+
+                    if (emailExists) {
+                        alert('Email is already registered. Please use a different email.');
+                    } else {
+                        // If email does not exist, proceed to add the new user data
+                        // const key = generateRandomKey(); // Generate a unique key for the new user
+                        const key = userData.name;
+
+                        addData(key, userData);
+                    }
+                } else {
+                    // No users in the database, proceed to add the new user data
+                    // const key = generateRandomKey();
+                    const key = userData.name;
+
+                    addData(key, userData);
+                }
+            })
+            .catch(error => {
+                console.error('Error checking for existing email:', error.message);
+                alert('Error registering. Please try again.');
+            });
+    };
+
+    // const generateRandomKey = () => {
+    //     // Generate a random key (e.g., UUID) for the user
+    //     return 'user_' + Math.random().toString(36).substr(2, 9);
+    // };
 
     const addData = (key, userData) => {
         fetch(`https://login-registration-page-58d92-default-rtdb.firebaseio.com/users/${key}.json`, {
-            method: 'PUT',  
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -370,5 +475,55 @@
     };
 
 
-const app = initializeApp(firebaseConfig);
+
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Validate email and password inputs
+        if (!email || !password) {
+            alert('Please enter both email and password.');
+            return;
+        }
+
+        // Fetch all users from Firebase
+        fetch(`https://login-registration-page-58d92-default-rtdb.firebaseio.com/users.json`)
+            .then(response => response.json())
+            .then(users => {
+                if (!users) {
+                    throw new Error('No users found.');
+                }
+
+                // Find the user with the matching email
+                let foundUser = null;
+                for (const userId in users) {
+                    if (users[userId].email === email) {
+                        foundUser = { id: userId, ...users[userId] };
+                        break;
+                    }
+                }
+
+                if (!foundUser) {
+                    alert('Email not found. Please check your email or register.');
+                    return;
+                }
+
+                // Check if the password matches
+                if (foundUser.password === password) {
+                    alert('Login successful');
+                    localStorage.setItem('loggedInUser', JSON.stringify(foundUser.name))
+                    window.location.href = 'index.html'; // Redirect to a homepage or dashboard
+                } else {
+                    alert('Incorrect password. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching user data:', error.message);
+                alert('Error logging in. Please try again.');
+            });
+    });
+
+
 </script>
