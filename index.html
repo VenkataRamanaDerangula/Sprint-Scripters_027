@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/bf60b033ea.js" crossorigin="anonymous"></script>
     <title>MovieGate</title>
+    <script src="index.js"></script>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -52,42 +53,56 @@
                 </div>
                 <div class="card">
                     <img src="./3.png" class="card-image" alt="Comedy TV Shows">
-                    <h3>Comedy TV Shows</h3>
-                    <button>Get Ticket</button>
+                    <h3>Stand Up Shows</h3>
+                    <button class="get-ticket-btn" onclick="window.location.href='Events.html'">Get Ticket</button>
+
                 </div>
             </div>
         </div>
         <div class="container">
             <!-- Now Playing Section -->
-            <div class="sec-1">
+            <div class="head-1">
                 <h3>Watch New Movies</h3>
                 <h1>Movies Now Playing</h1>
             </div>
             <!-- Movie Cards -->
              <div class="movie-cards">
                 <div class="card-1">
+
                     <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-12-768x513.jpg" alt="The Fifth Day">
-                    <h3>The Fifth Day</h3>
-                    <p>Comedy / 180 Mins</p>
-                    <button>Get Ticket</button>
+                    <div class="overlay">
+                        <h3>The Fifth Day</h3>
+                        <p>Comedy / 180 Mins</p>
+                        <button>Get Ticket</button>
+                    </div>
+                  
                 </div>
                 <div class="card-1">
                     <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/banner-10-768x660.jpg" alt="Black and White Twins">
-                    <h3>Black and White Twins</h3>
-                    <p>Animation, Comedy / 190 Mins</p>
-                    <button>Get Ticket</button>
+                    <div class="overlay">
+                        <h3>Black and White Twins</h3>
+                        <p>Animation, Comedy / 190 Mins</p>
+                        <button>Get Ticket</button>
+                    </div>
+                 
                 </div>
                 <div class="card-1">
                     <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-09-768x513.jpg" alt="The Scariest Dream">
-                    <h3>The Scariest Dream</h3>
-                    <p>Thriller / 180 Mins</p>
-                    <button>Get Ticket</button>
+                    <div class="overlay">
+                        <h3>The Scariest Dream</h3>
+                        <p>Thriller / 180 Mins</p>
+                        <button>Get Ticket</button>
+                    </div>
+               
                 </div>
                 <div class="card-1">
                     <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/movie-image-08-768x513.jpg" alt="The Pursuit of Dreams">
-                    <h3>The Pursuit of Dreams</h3>
-                    <p>Animation / 180 Mins</p>
-                    <button>Get Ticket</button>
+                    <div class="overlay">
+                        <h3>The Pursuit of Dreams</h3>
+                        <p>Animation / 180 Mins</p>
+                        <button>Get Ticket</button>
+                    </div>
+                
                 </div>
             </div>
         </div>
@@ -139,7 +154,6 @@
         <div class="foot-banner">
             <button>Book Your Ticket</button>
         </div>
-
     </main>
 <!-- FOOTER SECTION -->
     <footer>
@@ -190,7 +204,6 @@
                 </div>
             </div>
             <div class="con-1">
-
                 <div class="sec-4">
                     <h4>Newsletter</h4>
                     <p>Subscribe to Leitmotif newsletter this very day.</p>
@@ -209,32 +222,3 @@
     </footer>
 </body>
 </html>
-
-<script>
-    const images = document.querySelectorAll('.banner img');
-    let currentIndex = 0;
-
-    function showNextImage() {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
-    }
-
-    setInterval(showNextImage, 4000);
-
-
-
-    window.addEventListener('scroll', function() {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 100) { 
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-});
-
-document.getElementById("loginIcon").onclick = function() {
-            window.location.href = "login.html";
-        };
-
-</script>
