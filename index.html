@@ -222,3 +222,19 @@
     </footer>
 </body>
 </html>
+
+<script>
+    // Check if a user is logged in
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+    if (loggedInUser) {
+        // // Display the user's name in the welcome message
+        // const login =  document.getElementsByClassName('fa-user')
+        // login.style.display = 'none';
+
+        document.getElementById('loginIcon').textContent = `Hello, ${loggedInUser.name}!`;
+    } else {
+        // If no user is logged in, redirect to the login page
+        window.location.href = 'login.html';
+    }
+</script>

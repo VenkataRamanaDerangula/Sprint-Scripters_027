@@ -12,7 +12,7 @@
 
         body {
             font-family: "Open Sans", sans-serif;
-            background: linear-gradient(135deg, #ff6b6b 0%, #5f27cd 100%);
+            background: white;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,6 +27,12 @@
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             max-width: 1300px;
             width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+ 
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 40px;
         }
 
         .form-header {
@@ -320,18 +326,17 @@
             return;
         }
 
-
+        // Validate password
         if (!passwordRegex.test(createPassword)) {
             alert('Password must be 4-10 characters long, include at least one uppercase letter and one special character.');
             return;
         }
 
-
+        // Validate mobile number
         if (!phoneRegex.test(mobile)) {
             alert('Phone number must be exactly 10 digits.');
             return;
         }
-
 
         // Create user data object
         const userData = {
@@ -342,16 +347,50 @@
         };
 
         console.log('User Data:', userData);
-        const key = name
 
-
-        // Call function to add data to Firebase
-        addData(key, userData);
+        // Check if the email is already registered
+        checkIfEmailExists(email, userData);
     });
+
+    const checkIfEmailExists = (email, userData) => {
+        fetch(`https://login-registration-page-58d92-default-rtdb.firebaseio.com/users.json`)
+            .then(response => response.json())
+            .then(users => {
+                if (users) {
+                    // Check if email already exists
+                    const emailExists = Object.values(users).some(user => user.email === email);
+
+                    if (emailExists) {
+                        alert('Email is already registered. Please use a different email.');
+                    } else {
+                        // If email does not exist, proceed to add the new user data
+                        // const key = generateRandomKey(); // Generate a unique key for the new user
+                        const key = userData.name;
+
+                        addData(key, userData);
+                    }
+                } else {
+                    // No users in the database, proceed to add the new user data
+                    // const key = generateRandomKey();
+                    const key = userData.name;
+
+                    addData(key, userData);
+                }
+            })
+            .catch(error => {
+                console.error('Error checking for existing email:', error.message);
+                alert('Error registering. Please try again.');
+            });
+    };
+
+    // const generateRandomKey = () => {
+    //     // Generate a random key (e.g., UUID) for the user
+    //     return 'user_' + Math.random().toString(36).substr(2, 9);
+    // };
 
     const addData = (key, userData) => {
         fetch(`https://login-registration-page-58d92-default-rtdb.firebaseio.com/users/${key}.json`, {
-            method: 'PUT',  
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -370,5 +409,55 @@
     };
 
 
-const app = initializeApp(firebaseConfig);
+
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Validate email and password inputs
+    if (!email || !password) {
+        alert('Please enter both email and password.');
+        return;
+    }
+
+    // Fetch all users from Firebase
+    fetch(`https://login-registration-page-58d92-default-rtdb.firebaseio.com/users.json`)
+        .then(response => response.json())
+        .then(users => {
+            if (!users) {
+                throw new Error('No users found.');
+            }
+
+            // Find the user with the matching email
+            let foundUser = null;
+            for (const userId in users) {
+                if (users[userId].email === email) {
+                    foundUser = { id: userId, ...users[userId] };
+                    break;
+                }
+            }
+
+            if (!foundUser) {
+                alert('Email not found. Please check your email or register.');
+                return;
+            }
+
+            // Check if the password matches
+            if (foundUser.password === password) {
+                alert('Login successful');
+                localStorage.setItem('loggedInUser', JSON.stringify(foundUser))
+                window.location.href = 'index.html'; // Redirect to a homepage or dashboard
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching user data:', error.message);
+            alert('Error logging in. Please try again.');
+        });
+});
+
+
 </script>
