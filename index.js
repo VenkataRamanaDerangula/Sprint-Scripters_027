@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (usernameDisplay) {
             usernameDisplay.style.color = '#3498db';
             usernameDisplay.style.fontWeight = 'bold';
-            usernameDisplay.textContent = `Hello, ${loggedInUser.name}!`;
+            usernameDisplay.textContent = `Hello, ${loggedInUser}!`;
         }
 
         // Show logout button

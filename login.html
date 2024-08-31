@@ -447,7 +447,7 @@
             // Check if the password matches
             if (foundUser.password === password) {
                 alert('Login successful');
-                localStorage.setItem('loggedInUser', JSON.stringify(foundUser))
+                localStorage.setItem('loggedInUser', JSON.stringify(foundUser.name))
                 window.location.href = 'index.html'; // Redirect to a homepage or dashboard
             } else {
                 alert('Incorrect password. Please try again.');
