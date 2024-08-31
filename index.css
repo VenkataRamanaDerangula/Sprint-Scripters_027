@@ -65,6 +65,7 @@ nav>div.container {
 
 #logoutButton {
     background-color: #da5b0c; 
+    margin-right: 20px;
     color: white; 
     padding: 8px 16px;
     border: none; 
