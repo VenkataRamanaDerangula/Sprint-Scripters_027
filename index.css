@@ -295,7 +295,7 @@ form input[type="radio"] {
 }
 
 .card:hover {
-    transform: translateY(-1px);
+    transform: translateY(-15px);
 }
 
 .card button:hover {
