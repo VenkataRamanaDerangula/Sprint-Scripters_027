@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Booking</title>
+    <link rel="stylesheet" href="seatchart.css">
+</head>
+<body>
+   
+    <main>
+        <div class="container">
+            <div class="seating-chart-container">
+              
+                <div id="seating-chart"></div>
+            </div>
+            <div class="booking-info">
+                <h2>Booking Information</h2>
+
+                <!-- Added Movie Selection Section -->
+                <div class="movie-details">
+                    <label for="city">City:</label>
+                    <select id="city">
+                        <option value="">Select a City</option>
+                        <option value="New York">New York</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="Houston">Houston</option>
+                        <option value="Phoenix">Phoenix</option>
+                        <option value="Philadelphia">Philadelphia</option>
+                        <option value="San Antonio">San Antonio</option>
+                        <option value="San Diego">San Diego</option>
+                        <option value="Dallas">Dallas</option>
+                        <option value="San Jose">San Jose</option>
+                        <!-- Add more cities as needed -->
+                    </select>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date">
+
+                    <label for="time">Time:</label>
+                    <input type="time" id="time">
+
+                    <label for="format">Format:</label>
+                    <select id="format">
+                        <option value="2D">2D</option>
+                        <option value="3D">3D</option>
+                    </select>
+                </div>
+
+                <div id="selected-seats"></div>
+
+                <div class="summary">
+                    <label for="ticket-type">Ticket Type:</label>
+                    <select id="ticket-type">
+                        <option value="10">Children - $10.00</option>
+                        <option value="15">Adult - $15.00</option>
+                        <option value="20">VIP - $20.00</option>
+                    </select>
+                    <div class="addons">
+                        <label for="coca">Coca:</label>
+                        <input type="number" id="coca" min="0" value="0">
+                        <label for="popcorn">Popcorn:</label>
+                        <input type="number" id="popcorn" min="0" value="0">
+                    </div>
+                    <p>Total: $<span id="total-price">0.00</span></p>
+                    <input type="text" placeholder="Enter Discount Code" id="discount-code">
+                    <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="seatchart.js"></script>
+</body>
+</html>

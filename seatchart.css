@@ -1,0 +1,202 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+   
+}
+
+header {
+    max-width: 1320px;
+    margin: auto;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.container {
+    max-width: 1320px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.seating-chart-container {
+    flex: 1;
+    padding-right: 20px;
+}
+
+#stage {
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#seating-chart {
+    display: grid;
+    grid-template-columns: repeat(12, 50px);
+    gap: 5px;
+}
+
+.seat {
+    width: 40px; /* Slightly increased width */
+    height: 40px; /* Increased height to make it more rounded */
+    background-color: #ccc;
+    border-radius: 50%; /* Makes the seat circular */
+    text-align: center;
+    line-height: 40px; /* Center text vertically */
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s; /* Smooth color transition */
+}
+
+.seat:hover {
+    background-color: #6f0000; /* Change color on hover */
+}
+
+.seat.selected {
+    background-color: #200122; /* Change color for selected seats */
+}
+
+
+.tooltip {
+    display: none;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(50%);
+    background-color:white;
+    
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1;
+    color: rgb(0, 0, 0);
+}
+
+.booking-info {
+    width: 350px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.booking-info h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.movie-details label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.movie-details select, 
+.movie-details input[type="date"],
+.movie-details input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+.movie-details select:focus, 
+.movie-details input[type="date"]:focus,
+.movie-details input[type="time"]:focus {
+    border-color: #6f0000;
+    outline: none;
+}
+
+.summary {
+    margin-top: 20px;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary label {
+    font-size: 14px;
+    color: #666;
+}
+
+.addons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.addons input[type="number"] {
+    width: 45%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+#total-price {
+    font-weight: bold;
+    color: #6f0000;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#discount-code {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin-top: 15px;
+}
+
+button {
+    background-color: #6f0000;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #200122;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #4b0000;
+    transform: scale(1);
+}
+
+
+
+
+.seat:hover .tooltip {
+    display: block;
+}
