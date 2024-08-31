@@ -126,7 +126,7 @@ footer {
     transition: color 0.3s;
 }
 .help-privacy-social:hover,.social-media a:hover {
-    color: #d86c2b;
+    color: #d96c2c;
 }
 
 .ticket-info>p{
@@ -136,18 +136,18 @@ footer {
 
 .cta-button{
     padding: 10px;
-    background-color: #d86c2b;
+    background-color: #d96c2c;
     color: white;
 }
 
 .cta-button:hover{
     background-color: white;
-    color: #d86c2b;
+    color: #d96c2c;
     cursor: pointer;
 }
 
 .header{
-    color: #d86c2b;
+    color: #d96c2c;
     margin-top:10px;
 }
 .footer-info {
@@ -194,7 +194,7 @@ footer {
 }
 
 .footer-links ul li a:hover {
-    color: #d86c2b;
+    color: #d96c2c;
 }
 
 .newsletter input {
@@ -207,7 +207,7 @@ footer {
 
 .newsletter button {
     padding: 10px 20px;
-    background-color: #d86c2b;
+    background-color: #d96c2c;
     border: none;
     color: white;
     cursor: pointer;
@@ -225,7 +225,7 @@ footer {
 
 
 .newsletter label:hover {
-    color: #d86c2b;
+    color: #d96c2c;
 }
 .back-to-top {
     position: absolute;
@@ -234,7 +234,7 @@ footer {
 }
 
 .back-to-top a {
-    color: #d86c2b;
+    color: #d96c2c;
     font-size: 2rem;
 }
 
