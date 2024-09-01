@@ -1,10 +1,11 @@
 # Sprint-Scripters_027
 
 Introduction: 
+
 The Movie Booking System is a web application that allows users to browse movies, select showtimes, and book tickets online. This project simulates a real-world movie booking experience, including user authentication, movie listings, seat selection, and payment processing.
 
 Project Type:
-Frontend
+Frontend and Backend
 
 Deployed App
 
@@ -45,6 +46,35 @@ e. Online Payment Integration
 f. Booking History and Ticket Management
 
 
-Technologies Used
-Frontend: HTML, CSS, JavaScript
-Database: Firebase
+Installation & Getting started
+
+- Clone the repository:
+  git clone https://github.com/VenkataRamanaDerangula/Sprint-Scripters_027.git
+
+- Navigate to the project directory:
+  cd Sprint-Scripters_027
+
+- Open the index.html file in your web browser to start the application.
+
+
+Usage
+
+Landing Page: The index.html page serves as the landing page where users can explore movies.
+Event Page: The event.html page lists available movies and events with details.
+Seat Booking Page: The seat-booking.html page allows users to select seats and proceed with booking.
+Login/Register: The login.html page is for user authentication.
+
+Technology Stack
+Frontend
+
+HTML: Used for structuring the web pages. HTML forms the backbone of the web application's layout and content.
+CSS: Utilized for styling the application. CSS ensures that the application has a visually appealing and responsive design.
+JavaScript: The core programming language for adding interactivity and dynamic content to the web pages. JavaScript is used for handling user interactions, manipulating the DOM, and managing the application's logic.
+
+Backend (Firebase)
+Firebase Authentication: Provides secure and simple user authentication. It allows users to register, log in, and manage their accounts seamlessly.
+
+Additional Tools and Libraries
+
+Firebase SDK: The Firebase JavaScript SDK is used to integrate Firebase services like Authentication and Firestore into the application.
+Responsive Design: The application is designed to be responsive, ensuring it works well on a variety of devices, from mobile phones to desktops.
