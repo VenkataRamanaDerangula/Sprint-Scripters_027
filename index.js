@@ -24,7 +24,27 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 });
 
+// Hamberger
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile-nav-links');
 
+    hamburger.addEventListener('click', function () {
+        mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+    });
+});
+
+
+// card -1
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Attach event listener to the document, filtering clicks by the class 'card'
+    document.addEventListener('click', function (event) {
+        if (event.target.closest('.card')) {
+            window.location.href = 'event1.html';
+        }
+    });
+});
 
 
 // Login-logout functionality
@@ -44,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (usernameDisplay) {
             usernameDisplay.style.color = '#3498db';
             usernameDisplay.style.fontWeight = 'bold';
-            usernameDisplay.textContent = `Hello, ${loggedInUser}!`;
+            usernameDisplay.textContent = `Hello, ${loggedInUser}`;
         }
 
         // Show logout button
