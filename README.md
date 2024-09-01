@@ -9,7 +9,7 @@ Frontend and Backend
 
 Deployed App
 
-Frontend: 
+Frontend: https://66d4aa90809e4639b6b1de2c--mellifluous-horse-b29040.netlify.app/
 
 Directory Structure
 
@@ -33,9 +33,6 @@ movie-booking-system/
 ├── images/                  # Images used in the project
 └── README.md                # This file
            
-
-Video Walkthrogh of the Project
-
 
 Features
 a. User Registration and Login
