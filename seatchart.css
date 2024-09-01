@@ -3,7 +3,6 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-   
 }
 
 header {
@@ -21,6 +20,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    flex-wrap: wrap; /* Wrap content on smaller screens */
 }
 
 .seating-chart-container {
@@ -43,25 +43,24 @@ header {
 }
 
 .seat {
-    width: 40px; /* Slightly increased width */
-    height: 40px; /* Increased height to make it more rounded */
+    width: 40px;
+    height: 40px;
     background-color: #ccc;
-    border-radius: 50%; /* Makes the seat circular */
+    border-radius: 50%;
     text-align: center;
-    line-height: 40px; /* Center text vertically */
+    line-height: 40px;
     cursor: pointer;
     position: relative;
-    transition: background-color 0.3s; /* Smooth color transition */
+    transition: background-color 0.3s;
 }
 
 .seat:hover {
-    background-color: #6f0000; /* Change color on hover */
+    background-color: #6f0000;
 }
 
 .seat.selected {
-    background-color: #200122; /* Change color for selected seats */
+    background-color: #200122;
 }
-
 
 .tooltip {
     display: none;
@@ -69,8 +68,7 @@ header {
     top: -35px;
     left: 50%;
     transform: translateX(50%);
-    background-color:white;
-    
+    background-color: white;
     padding: 5px;
     border-radius: 5px;
     z-index: 1;
@@ -105,7 +103,7 @@ header {
     margin-bottom: 5px;
 }
 
-.movie-details select, 
+.movie-details select,
 .movie-details input[type="date"],
 .movie-details input[type="time"] {
     width: 100%;
@@ -116,9 +114,10 @@ header {
     font-size: 14px;
     background-color: #f9f9f9;
     transition: border-color 0.3s;
+    box-sizing: border-box; /* Ensure perfect shape */
 }
 
-.movie-details select:focus, 
+.movie-details select:focus,
 .movie-details input[type="date"]:focus,
 .movie-details input[type="time"]:focus {
     border-color: #6f0000;
@@ -151,6 +150,7 @@ header {
     border-radius: 8px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
+    box-sizing: border-box; /* Ensure perfect shape */
 }
 
 #total-price {
@@ -168,10 +168,11 @@ header {
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     margin-top: 15px;
+    box-sizing: border-box; /* Ensure perfect shape */
 }
 
 button {
-    background-color: #6f0000;
+    background-color: #d96c2c;
     color: white;
     border: none;
     padding: 12px;
@@ -185,18 +186,122 @@ button {
 }
 
 button:hover {
-    background-color: #200122;
+    background-color: #4b0000;
     transform: scale(1.05);
 }
 
-button:active {
-    background-color: #4b0000;
-    transform: scale(1);
-}
-
-
-
-
 .seat:hover .tooltip {
     display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    #seating-chart {
+        grid-template-columns: repeat(10, 40px); /* Reduce grid size for tablets */
+        gap: 5px;
+    }
+
+    .seat {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .booking-info {
+        width: 100%; /* Full width on smaller screens */
+        padding: 15px;
+    }
+
+    .booking-info h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 10px;
+    }
+
+    .seating-chart-container {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .booking-info {
+        padding: 15px;
+    }
+
+    #seating-chart {
+        grid-template-columns: repeat(8, 35px); /* Further reduce grid size for smaller screens */
+    }
+
+    .seat {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .booking-info h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+    }
+
+    .movie-details select,
+    .movie-details input[type="date"],
+    .movie-details input[type="time"] {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+
+    .seating-chart-container {
+        margin-bottom: 15px;
+    }
+
+    .booking-info {
+        padding: 10px;
+        box-shadow: none;
+    }
+
+    #seating-chart {
+        grid-template-columns: repeat(6, 30px); /* Smallest grid size for mobile */
+        gap: 3px;
+    }
+
+    .seat {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    .booking-info h2 {
+        font-size: 18px;
+        padding-bottom: 5px;
+    }
+
+    .movie-details select,
+    .movie-details input[type="date"],
+    .movie-details input[type="time"] {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 13px;
+    }
 }

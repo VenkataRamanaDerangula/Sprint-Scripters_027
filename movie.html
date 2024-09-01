@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Movie Ticket Booking</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="movie.css">
     <script src="https://kit.fontawesome.com/1b8e70d248.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="mimgcontainer">
-
         <h5>Home <i class="fa-solid fa-angle-right" style="color: #7c7d7e;"></i> Movies All</h5>
-
         <p>Movies All</p>
-
     </div>
     <div class="mline">
         <img src="assets/asset 1.jpeg" alt="">
     </div>
 
-  
-
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for a movie...">
+        <button onclick="searchMovies()">Search</button>
+    </div> 
 
     <main>
         <div id="movies" class="movie-list"></div>
     </main>
-    <script src="script.js"></script>
+    <script src="movie.js"></script>
 </body>
 </html>
