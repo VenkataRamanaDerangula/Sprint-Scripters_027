@@ -17,17 +17,17 @@ movie-booking-system/
 ├── css/
 │   ├── index.css            # Styles for the landing page
 │   ├── event.css            # Styles for the event page
-│   ├── seat-booking.css     # Styles for the seat booking page
+│   ├── movie.css            # Styles for the seat booking page
 │   └── login-register.css   # Styles for login and registration pages
 ├── js/
 │   ├── index.js             # JavaScript for the landing page
 │   ├── event.js             # JavaScript for the event page
-│   ├── seat-booking.js      # JavaScript for seat booking functionality
+│   ├── movie.js             # JavaScript for seat booking functionality
 │   ├── login.js             # JavaScript for login functionality
 │   └── register.js          # JavaScript for registration functionality
 ├── index.html               # Landing page
 ├── event.html               # Event page
-├── seat-booking.html        # Seat booking page
+├── movie.html               # Seat booking page
 ├── login.html               # Login page
 ├── register.html            # Registration page
 ├── images/                  # Images used in the project
