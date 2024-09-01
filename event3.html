@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bf60b033ea.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Zakir Khan Live in Mumbai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background-image: url('./h.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .breadcrumb {
+            position: absolute;
+            top: 150px;
+            font-size: 14px;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .main-heading {
+            font-size: 36px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .event-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .event-details, .event-info {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px 0;
+        }
+
+        .event-details h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .event-date {
+            background-color: #FFA07A;
+            color: white;
+            padding: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .highlighted-text {
+            color: #FF4500;
+            text-align: center;
+        }
+
+        .event-images {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .event-images img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        button {
+            background-color: #FFA07A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #FF6347;
+            transform: scale(1.05);
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            background-color: grey;
+            margin-top: 20px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Form Styles */
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-content label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .modal-content input {
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .modal-content button[type="submit"] {
+            background-color: #FFA07A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background-color: #FF6347;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .event-container {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            .event-details, .event-info {
+                width: 45%;
+            }
+
+            .event-images {
+                flex-direction: row;
+                gap: 2%;
+            }
+
+            .event-images img {
+                width: 48%;
+            }
+
+            .main-heading {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-gray-900 p-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-white">
+                <img src="./img_land/logo.png" alt="Logo" class="h-8">
+            </div>
+            
+            <!-- Menu Items -->
+            <div class="hidden md:flex space-x-4 mx-auto">
+                <a href="index.html" class="hover:text-orange-500 text-white">Home</a>
+                <a href="#" class="hover:text-orange-500 text-white">Movies</a>
+                <a href="Events.html" class="hover:text-orange-500 text-white">Events</a>
+                <a href="about.html" class="hover:text-orange-500 text-white">About</a>
+                
+                <a href="contact.html" class="hover:text-orange-500 text-white">Contact</a>
+            </div>
+            
+            <!-- Search Bar and Login -->
+            <div class="flex items-center space-x-4">
+                <input type="text" placeholder="Search..." class="px-4 py-2 rounded-lg bg-gray-800 text-white focus:outline-none">
+                <a href="login.html" class="hover:text-orange-500 text-white">Login</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white">
+                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html" class="block p-2 hover:bg-gray-700 text-white">Home</a>
+            <a href="movie.html" class="block p-2 hover:bg-gray-700 text-white">Movies</a>
+            <a href="Events.html" class="block p-2 hover:bg-gray-700 text-white">Events</a>
+            <a href="about.html" class="block p-2 hover:bg-gray-700 text-white">About</a>
+            <a href="contact.html" class="block p-2 hover:bg-gray-700 text-white">Contact</a>
+            <div class="p-2">
+                <input type="text" placeholder="Search..." class="px-4 py-2 w-full rounded-lg bg-gray-800 text-white focus:outline-none mb-2">
+                <a href="login.html" class="block text-center text-white bg-orange-500 rounded-lg py-2">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section class="hero-section">
+        <div class="breadcrumb">
+            <a href="#">Home</a> &gt; <span>Events</span> &gt; <span>Zakir Khan Indian comedian and poet</span>
+        </div>
+        <h1 class="main-heading">Events</h1>
+    </section>
+    <br>
+    <div class="border" style="text-align: center;">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-lines-header.jpg" alt="Logo" style="max-width: 100%;">
+    </div>
+    <br><br><br><br><br><br><br>
+
+    <div class="event-container">
+        <div class="event-details">
+            <h1>Zakir Khan Live Show</h1>
+            <div class="event-date">December 26, 2024</div>
+            <p>Get ready for a night full of laughter with the renowned comedian Zakir Khan! Known for his unique style and relatable humor, Zakir will bring his best jokes and comedic skits to Bangalore. Don’t miss out on this opportunity to enjoy an evening with one of India’s top stand-up artists.</p>
+            <h3 class="highlighted-text">“Haq Se Single” and Many More Laughs!!</h3>
+            <p>Zakir Khan, famous for his hit stand-up specials and witty storytelling, will be performing his signature act. Join us for a hilarious night out with friends and family as Zakir takes the stage with his infectious energy and humor. Book your tickets now for a memorable comedy experience!</p>
+            <div class="event-images">
+                <img src="https://th.bing.com/th/id/OIP.JL08Uk1TPL2IlTy25bltLwHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Image 1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEZopQ__0ZoiPL5PpFoEgnIORLdSC2b07BMg&s" alt="Image 2">
+            </div>
+            <button id="registerBtn">Register</button>
+        </div>
+        <div class="event-info">
+            <div class="event-timing">
+                <p><strong>Timing:</strong> 8:00 pm to 10:00 pm</p>
+                <p><strong>Date:</strong> December 26, 2024</p>
+                <p><strong>Category:</strong> Live Show</p>
+                <p><strong>Location:</strong> Mumbai</p>
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book Your Seat</h2>
+            <form id="registrationForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and About Section -->
+                <div class="flex flex-col items-start">
+                    <img src="./img_land/logo.png" alt="Logo" class="h-12 mb-4 transition-transform duration-300 hover:scale-110">
+                    <p class="text-gray-400 text-sm leading-relaxed">Experience the thrill of the latest movies and exclusive events, all in one place.</p>
+                </div>
+    
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300">Movies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300">Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="text-gray-400">123 Movie St, Film City, FL 12345</p>
+                    <p class="text-gray-400">Phone: (123) 456-7890</p>
+                    <p class="text-gray-400">Email: <a href="mailto:info@moviehub.com" class="text-orange-500 hover:text-orange-600 transition-colors duration-300">info@moviehub.com</a></p>
+                </div>
+    
+                <!-- Social Media Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-orange-500 hover:text-orange-600 transition-colors duration-300 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-facebook h-6 w-6" viewBox="0 0 16 16">
+                                <path d="M12.3 3.72H9.82c-.05 0-.1.02-.14.05a.21.21 0 0 0-.08.16V5h2.52a.21.21 0 0 1 .21.21v2.52a.21.21 0 0 1-.21.21H9.6v5.47a.21.21 0 0 1-.21.21H6.87a.21.21 0 0 1-.21-.21V8.14H5.28a.21.21 0 0 1-.21-.21V5.41c0-.12.09-.21.21-.21H6.66V4.09c0-2.2 1.34-3.41 3.3-3.41H12a.21.21 0 0 1 .21.21V3.5a.21.21 0 0 1-.21.21h-.68z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-orange-500 hover:text-orange-600 transition-colors duration-300 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter h-6 w-6" viewBox="0 0 16 16">
+                                <path d="M16 3.03c-.59.26-1.22.43-1.88.51.68-.41 1.2-1.06 1.45-1.84-.64.38-1.35.65-2.1.8a3.303 3.303 0 0 0-5.65 2.26c0 .26.03.52.08.77C5.04 6.1 2.67 4.86 1.02 2.89a3.3 3.3 0 0 0-.45 1.65c0 1.14.58 2.15 1.46 2.74-.54-.02-1.05-.16-1.5-.41v.04c0 1.6 1.13 2.93 2.63 3.23-.28.07-.58.11-.89.11-.22 0-.43-.02-.64-.06a3.305 3.305 0 0 0 3.07 2.29A6.606 6.606 0 0 1 0 13.54 9.26 9.26 0 0 0 5.03 15c6.04 0 9.35-5.01 9.35-9.35 0-.14 0-.28-.01-.41.64-.46 1.2-1.04 1.64-1.7z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-orange-500 hover:text-orange-600 transition-colors duration-300 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-instagram h-6 w-6" viewBox="0 0 16 16">
+                                <path d="M8 0c-2.21 0-2.482.01-3.354.048-.872.037-1.467.164-2.013.35A4.415 4.415 0 0 0 .515 1.694c-.463.464-.859 1.058-1.2 1.845-.186.546-.313 1.141-.35 2.013C-.01 6.482 0 6.79 0 8c0 2.21.01 2.482.048 3.354.037.872.164 1.467.35 2.013.34.787.736 1.381 1.2 1.845.464.463 1.058.859 1.845 1.2.546.186 1.141.313 2.013.35.872.037 1.165.048 3.354.048 2.21 0 2.482-.01 3.354-.048.872-.037 1.467-.164 2.013-.35a4.415 4.415 0 0 0 1.845-1.2c.463-.464.859-1.058 1.2-1.845.186-.546.313-1.141.35-2.013.037-.872.048-1.165.048-3.354 0-2.21-.01-2.482-.048-3.354-.037-.872-.164-1.467-.35-2.013a4.415 4.415 0 0 0-1.2-1.845c-.464-.463-1.058-.859-1.845-1.2-.546-.186-1.141-.313-2.013-.35C10.482.01 10.19 0 8 0zm0 1.516c2.174 0 2.432.01 3.29.048.795.034 1.227.15 1.514.25.38.147.653.324.942.613.29.29.466.563.613.942.1.287.216.719.25 1.514.037.858.048 1.116.048 3.29 0 2.174-.01 2.432-.048 3.29-.034.795-.15 1.227-.25 1.514-.147.38-.324.653-.613.942-.29.29-.563.466-.942.613-.287.1-.719.216-1.514.25-.858.037-1.116.048-3.29.048-2.174 0-2.432-.01-3.29-.048-.795-.034-1.227-.15-1.514-.25a3.1 3.1 0 0 1-.942-.613c-.29-.29-.466-.563-.613-.942-.1-.287-.216-.719-.25-1.514-.037-.858-.048-1.116-.048-3.29 0-2.174.01-2.432.048-3.29.034-.795.15-1.227.25-1.514.147-.38.324-.653.613-.942.29-.29.563-.466.942-.613.287-.1.719-.216 1.514-.25.858-.037 1.116-.048 3.29-.048zM8 3.883A4.117 4.117 0 1 0 8 12.117 4.117 4.117 0 1 0 8 3.883zm0 1.516a2.601 2.601 0 1 1 0 5.202 2.601 2.601 0 0 1 0-5.202zm4.943-.638a.964.964 0 1 0 0 1.928.964.964 0 0 0 0-1.928z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-gray-600 text-sm">
+                &copy; 2024 MovieHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+         const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize and add the map
+        function initMap() {
+            const location = { lat: 19.0760, lng: 72.8777};
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: location,
+            });
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+
+        // Load the map script
+        const mapScript = document.createElement('script');
+        mapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBZpSfHBwhbzQy2dAknS5-g_-QqHPR1ODU&callback=initMap`;
+        mapScript.async = true;
+        document.head.appendChild(mapScript);
+        document.getElementById('registerBtn').onclick = function() {
+            document.getElementById('registrationModal').style.display = 'block';
+        }
+
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('registrationModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('registrationModal')) {
+                document.getElementById('registrationModal').style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>

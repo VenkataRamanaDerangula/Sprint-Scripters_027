@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/bf60b033ea.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .hero-section {
+            background-image: url('./h.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .breadcrumb {
+            position: absolute;
+            top: 150px;
+            font-size: 14px;
+            color: #ffffff;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .main-heading {
+            font-size: 48px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 1200px;
+            overflow: hidden;
+        }
+
+        .image-section {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            flex: 1;
+            padding: 20px;
+        }
+
+        .image-section img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .badge .years {
+            font-size: 32px;
+            color: orange;
+            font-weight: bold;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: orange;
+            border-radius: 50%;
+            padding: 15px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-button:hover {
+            background-color: #cc5800;
+        }
+
+        .play-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .content-section {
+            width: 100%;
+            max-width: 500px;
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .content-section h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .content-section p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .innovation {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .innovation svg {
+            width: 40px;
+            height: 40px;
+            color: orange;
+            margin-right: 10px;
+        }
+
+        .innovation .innovation-text {
+            color: #333;
+        }
+
+        .innovation .innovation-text h4 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .innovation .innovation-text p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .discover-button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .discover-button:hover {
+            background-color: #333;
+        }
+
+        /* Carousel styling */
+        .carousel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-item {
+            min-width: 20%;
+            box-sizing: border-box;
+            padding: 0 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 10px;
+            background-color: orange;
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s ease;
+            z-index: 2;
+        }
+
+        .carousel-nav:hover {
+            background-color: #cc5800;
+        }
+
+        .carousel-nav.left {
+            left: -40px;
+        }
+
+        .carousel-nav.right {
+            right: -40px;
+        }
+
+         /* Stats Section CSS */
+         .stats-section {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .stats-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .stat-box {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 200px;
+        }
+
+        .stat-box h3 {
+            font-size: 28px;
+            margin: 0;
+            color: orange;
+        }
+
+        .stat-box p {
+            font-size: 16px;
+            margin: 10px 0 0;
+        }
+        /* Film Crew Section */
+        .film-crew-section {
+            background-color: #ffffff;
+            padding: 50px 0;
+        }
+
+        .crew-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .crew-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .crew-member {
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .crew-member img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .crew-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .crew-member h3 {
+            margin: 20px 0 5px 0;
+            font-size: 1.5rem;
+        }
+
+        .crew-member p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .crew-member .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            font-size: 1.2rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            color: #ff6700;
+        }
+
+        .crew-member .underline {
+            width: 50px;
+            height: 3px;
+            background-color: #ff6700;
+            margin: 15px auto 0;
+        }
+
+        /* Testimonial Slider Section */
+        .testimonial-slider {
+            position: relative;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .testimonial {
+            display: none;
+            text-align: center;
+        }
+
+        .testimonial.active {
+            display: block;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid orange;
+        }
+
+        .testimonial h4 {
+            font-size: 20px;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .testimonial .stars {
+            color: orange;
+        }
+
+        .testimonial-slider .prev,
+        .testimonial-slider .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: orange;
+            border-radius: 50%;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .testimonial-slider .prev:hover,
+        .testimonial-slider .next:hover {
+            background-color: #cc5800;
+        }
+
+        .testimonial-slider .prev {
+            left: -40px;
+        }
+
+        .testimonial-slider .next {
+            right: -40px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+ 
+
+        <!-- Navbar -->
+        <nav class="bg-gray-900 p-4 fixed w-full top-0 z-50">
+            <div class="container mx-auto flex items-center justify-between">
+                <!-- Logo -->
+                <div class="text-2xl font-bold text-white">
+                    <img src="./img_land/logo.png" alt="Logo" class="h-8">
+                </div>
+                
+                <!-- Menu Items -->
+                <div class="hidden md:flex space-x-4 mx-auto">
+                    <a href="index.html" class="hover:text-orange-500 text-white">Home</a>
+                    <a href="movie.html" class="hover:text-orange-500 text-white">Movies</a>
+                    <a href="Events.html" class="hover:text-orange-500 text-white">Events</a>
+                    <a href="about.html" class="hover:text-orange-500 text-white">About</a>
+                    
+                    <a href="contact.html" class="hover:text-orange-500 text-white">Contact</a>
+                </div>
+                
+                <!-- Search Bar and Login -->
+                <div class="flex items-center space-x-4">
+                    <input type="text" placeholder="Search..." class="px-4 py-2 rounded-lg bg-gray-800 text-white focus:outline-none">
+                    <a href="login.html" class="hover:text-orange-500 text-white">Login</a>
+                </div>
+    
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-white">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <a href="index.html" class="block p-2 hover:bg-gray-700 text-white">Home</a>
+                <a href="movie.html" class="block p-2 hover:bg-gray-700 text-white">Movies</a>
+                <a href="Events.html" class="block p-2 hover:bg-gray-700 text-white">Events</a>
+                <a href="about.html" class="block p-2 hover:bg-gray-700 text-white">About</a>
+                <a href="contact.html" class="block p-2 hover:bg-gray-700 text-white">Contact</a>
+                <div class="p-2">
+                    <input type="text" placeholder="Search..." class="px-4 py-2 w-full rounded-lg bg-gray-800 text-white focus:outline-none mb-2">
+                    <a href="login.html" class="block text-center text-white bg-orange-500 rounded-lg py-2">Login</a>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <br><br><br>
+        <nav class="breadcrumb">
+            
+            <a href="index.html">Home</a> > <a href="events.html">About</a>
+        </nav>
+        <h1 class="main-heading">About Us</h1>
+    </div>
+
+    <div class="border" style="text-align: center; padding: 20px;">
+        <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-lines-header.jpg" alt="Logo" style="max-width: 100%; height: auto;">
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="flex-container">
+        <div class="image-section">
+            <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/image-about-about-page.jpg" alt="Event Image">
+            <div class="badge">
+                <p>Years</p>
+                <p class="years">25</p>
+            </div>
+            <div class="play-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14.752 11.168l-5.197-3.028A1 1 0 008 9.057v5.886a1 1 0 001.555.832l5.197-3.028a1 1 0 000-1.664z" />
+                </svg>
+            </div>
+        </div>
+        <div class="content-section">
+            <h2>Our Journey</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed at pulvinar magna.</p>
+            <div class="innovation">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14.752 11.168l-5.197-3.028A1 1 0 008 9.057v5.886a1 1 0 001.555.832l5.197-3.028a1 1 0 000-1.664z" />
+                </svg>
+                <div class="innovation-text">
+                    <h4>Innovation</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <a href="#" class="discover-button">Discover More</a>
+        </div>
+    </div>
+
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <div class="carousel-nav left">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner3.png" alt="Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner1.png" alt="Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner5.png" alt="Image 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner6.png" alt="Image 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/03/partner4.png" alt="Image 5">
+                </div>
+            </div>
+        </div>
+        <div class="carousel-nav right">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <!-- Achievements and Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <!-- Achievements -->
+            <div class="stat-box">
+                <h3 class="achievement-number" data-target="350">0</h3>
+                <p>Successful Projects</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="achievement-number" data-target="150">0</h3>
+                <p>Happy Clients</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="achievement-number" data-target="25">0</h3>
+                <p>Years of Experience</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Film Crew Section -->
+    <div class="film-crew-section">
+        <h2 class="crew-title">Meet Our Crew</h2>
+        <div class="crew-container">
+            <div class="crew-member">
+                <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-2-our-team.jpg" alt="Crew Member 1">
+                <h3>Jenny Doe</h3>
+                <div class="underline"></div>
+                <p>Director</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="crew-member">
+                <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-1-our-team.jpg" alt="Crew Member 2">
+                <h3>Jane Smith</h3>
+                <div class="underline"></div>
+                <p>Producer</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="crew-member">
+                <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-3-our-team.jpg" alt="Crew Member 3">
+                <h3>Mike Johnson</h3>
+                <div class="underline"></div>
+                <p>Cinematographer</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Slider Section -->
+    <div class="testimonial-slider">
+        <div class="testimonial active">
+            <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-1-our-team.jpg" alt="Testimonial 1">
+            <p>"This event was amazing! The attention to detail was impeccable."</p>
+            <h4>Client 1</h4>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+        <div class="testimonial">
+            <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-2-our-team.jpg" alt="Testimonial 2">
+            <p>"An unforgettable experience! Highly recommend this team."</p>
+            <h4>Client 2</h4>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+        <div class="testimonial">
+            <img src="https://demo.ovatheme.com/aovis/wp-content/uploads/2023/02/image-3-our-team.jpg" alt="Testimonial 3">
+            <p>"The professionalism and creativity were top-notch."</p>
+            <h4>Client 3</h4>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+        <div class="prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="next">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and About Section -->
+                <div class="flex flex-col items-start">
+                    <img src="./img_land/logo.png" alt="Logo" class="h-12 mb-4 transition-transform duration-300 hover:scale-110">
+                    <p class="text-gray-400 text-sm leading-relaxed">Experience the thrill of the latest movies and exclusive events, all in one place.</p>
+                </div>
+    
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300">Movies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300">Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="text-gray-400">123 Movie St, Film City, FL 12345</p>
+                    <p class="text-gray-400">Phone: (123) 456-7890</p>
+                    <p class="text-gray-400">Email: <a href="mailto:info@moviehub.com" class="text-orange-500 hover:text-orange-600 transition-colors duration-300">info@moviehub.com</a></p>
+                </div>
+    
+                <!-- Social Media Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-orange-500 hover:text-orange-600 transition-colors duration-300 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-facebook h-6 w-6" viewBox="0 0 16 16">
+                                <path d="M12.3 3.72H9.82c-.05 0-.1.02-.14.05a.21.21 0 0 0-.08.16V5h2.52a.21.21 0 0 1 .21.21v2.52a.21.21 0 0 1-.21.21H9.6v5.47a.21.21 0 0 1-.21.21H6.87a.21.21 0 0 1-.21-.21V8.14H5.28a.21.21 0 0 1-.21-.21V5.41c0-.12.09-.21.21-.21H6.66V4.09c0-2.2 1.34-3.41 3.3-3.41H12a.21.21 0 0 1 .21.21V3.5a.21.21 0 0 1-.21.21h-.68z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-orange-500 hover:text-orange-600 transition-colors duration-300 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter h-6 w-6" viewBox="0 0 16 16">
+                                <path d="M16 3.03c-.59.26-1.22.43-1.88.51.68-.41 1.2-1.06 1.45-1.84-.64.38-1.35.65-2.1.8a3.303 3.303 0 0 0-5.65 2.26c0 .26.03.52.08.77C5.04 6.1 2.67 4.86 1.02 2.89a3.3 3.3 0 0 0-.45 1.65c0 1.14.58 2.15 1.46 2.74-.54-.02-1.05-.16-1.5-.41v.04c0 1.6 1.13 2.93 2.63 3.23-.28.07-.58.11-.89.11-.22 0-.43-.02-.64-.06a3.305 3.305 0 0 0 3.07 2.29A6.606 6.606 0 0 1 0 13.54 9.26 9.26 0 0 0 5.03 15c6.04 0 9.35-5.01 9.35-9.35 0-.14 0-.28-.01-.41.64-.46 1.2-1.04 1.64-1.7z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-orange-500 hover:text-orange-600 transition-colors duration-300 transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-instagram h-6 w-6" viewBox="0 0 16 16">
+                                <path d="M8 0c-2.21 0-2.482.01-3.354.048-.872.037-1.467.164-2.013.35A4.415 4.415 0 0 0 .515 1.694c-.463.464-.859 1.058-1.2 1.845-.186.546-.313 1.141-.35 2.013C-.01 6.482 0 6.79 0 8c0 2.21.01 2.482.048 3.354.037.872.164 1.467.35 2.013.34.787.736 1.381 1.2 1.845.464.463 1.058.859 1.845 1.2.546.186 1.141.313 2.013.35.872.037 1.165.048 3.354.048 2.21 0 2.482-.01 3.354-.048.872-.037 1.467-.164 2.013-.35a4.415 4.415 0 0 0 1.845-1.2c.463-.464.859-1.058 1.2-1.845.186-.546.313-1.141.35-2.013.037-.872.048-1.165.048-3.354 0-2.21-.01-2.482-.048-3.354-.037-.872-.164-1.467-.35-2.013a4.415 4.415 0 0 0-1.2-1.845c-.464-.463-1.058-.859-1.845-1.2-.546-.186-1.141-.313-2.013-.35C10.482.01 10.19 0 8 0zm0 1.516c2.174 0 2.432.01 3.29.048.795.034 1.227.15 1.514.25.38.147.653.324.942.613.29.29.466.563.613.942.1.287.216.719.25 1.514.037.858.048 1.116.048 3.29 0 2.174-.01 2.432-.048 3.29-.034.795-.15 1.227-.25 1.514-.147.38-.324.653-.613.942-.29.29-.563.466-.942.613-.287.1-.719.216-1.514.25-.858.037-1.116.048-3.29.048-2.174 0-2.432-.01-3.29-.048-.795-.034-1.227-.15-1.514-.25a3.1 3.1 0 0 1-.942-.613c-.29-.29-.466-.563-.613-.942-.1-.287-.216-.719-.25-1.514-.037-.858-.048-1.116-.048-3.29 0-2.174.01-2.432.048-3.29.034-.795.15-1.227.25-1.514.147-.38.324-.653.613-.942.29-.29.563-.466.942-.613.287-.1.719-.216 1.514-.25.858-.037 1.116-.048 3.29-.048zM8 3.883A4.117 4.117 0 1 0 8 12.117 4.117 4.117 0 1 0 8 3.883zm0 1.516a2.601 2.601 0 1 1 0 5.202 2.601 2.601 0 0 1 0-5.202zm4.943-.638a.964.964 0 1 0 0 1.928.964.964 0 0 0 0-1.928z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-gray-600 text-sm">
+                &copy; 2024 MovieHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+ const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const prevBtn = document.querySelector('.testimonial-slider .prev');
+        const nextBtn = document.querySelector('.testimonial-slider .next');
+        const testimonials = document.querySelectorAll('.testimonial');
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.remove('active');
+                if (i === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + testimonials.length) % testimonials.length;
+            showSlide(currentSlide);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % testimonials.length;
+            showSlide(currentSlide);
+        });
+
+        // Achievement number animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const achievementNumbers = document.querySelectorAll('.achievement-number');
+
+            achievementNumbers.forEach(number => {
+                const target = +number.getAttribute('data-target');
+                let count = 0;
+
+                const updateNumber = () => {
+                    number.textContent = count;
+                    if (count < target) {
+                        count += Math.ceil(target / 100);
+                        setTimeout(updateNumber, 50);
+                    } else {
+                        number.textContent = target;
+                    }
+                };
+
+                updateNumber();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
