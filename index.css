@@ -80,7 +80,6 @@ nav > div.container {
 }
 
 
-
 /* Hamburger Menu */
 .mobile-nav-links {
     display: none;
@@ -319,7 +318,7 @@ footer {
         display: flex;
        
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
     }
 }
 
@@ -365,6 +364,7 @@ footer {
     height: 100px;
     object-fit: cover;
     margin-bottom: 15px;
+    
 }
 
 .card h3 {
@@ -434,7 +434,6 @@ footer {
     gap: 50px;
     }
 }
-
 
 @media(max-width:600px){
     .movie-cards{
@@ -612,18 +611,20 @@ footer {
 }
 
 .partner {
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
 }
 
 .partner img {
-    max-width: 15%;
-    height: auto;
-    display: block;
+    margin-top: 20px;
+    margin-left: 90px;
+
+}
+.partner img:hover{
+    transform: scale(1.1);
+
 }
 
 
@@ -633,6 +634,7 @@ footer {
     .event-card-container{
         display: none;
         }
+    
 }
 
 .pat{
@@ -640,6 +642,7 @@ footer {
     margin-left: 50px;
     color: black;
 }
+
 .foot-banner {
     background-image: url("./discount.png");
     display: flex;
