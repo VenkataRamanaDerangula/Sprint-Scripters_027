@@ -9,7 +9,7 @@ Frontend and Backend
 
 Deployed App
 
-Frontend: https://66d4aa90809e4639b6b1de2c--mellifluous-horse-b29040.netlify.app/
+Frontend: https://66d56ac1eab8d3bc631a18c5--famous-semifreddo-ecf23a.netlify.app/
 
 Directory Structure
 
@@ -62,7 +62,8 @@ Seat Booking Page: The seat-booking.html page allows users to select seats and p
 Login/Register: The login.html page is for user authentication.
 
 Technology Stack
-Frontend
+
+Frontend:
 
 HTML: Used for structuring the web pages. HTML forms the backbone of the web application's layout and content.
 CSS: Utilized for styling the application. CSS ensures that the application has a visually appealing and responsive design.
