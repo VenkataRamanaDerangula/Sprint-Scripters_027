@@ -60,6 +60,7 @@ Landing Page: The index.html page serves as the landing page where users can exp
 Event Page: The event.html page lists available movies and events with details.
 Seat Booking Page: The seat-booking.html page allows users to select seats and proceed with booking.
 Login/Register: The login.html page is for user authentication.
+contact page: User can directly contact us for more query.
 
 Technology Stack
 
